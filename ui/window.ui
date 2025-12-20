@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1250</width>
-    <height>574</height>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>YOLO Person Detector</string>
+   <string>ARKPLUS</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_main">
@@ -40,7 +40,7 @@
            <string notr="true">border: 1px solid black;</string>
           </property>
           <property name="text">
-           <string>Original Image</string>
+           <string>원본 이미지</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -59,7 +59,7 @@
            <string notr="true">border: 1px solid black;</string>
           </property>
           <property name="text">
-           <string>Result Image</string>
+           <string>결과 이미지</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -73,21 +73,21 @@
         <item>
          <widget class="QPushButton" name="btn_load">
           <property name="text">
-           <string>Load Image</string>
+           <string>이미지 불러오기</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btn_detect">
           <property name="text">
-           <string>Detect</string>
+           <string>사람 감지하기</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btn_save">
           <property name="text">
-           <string>Save Image</string>
+           <string>이미지 저장하기</string>
           </property>
          </widget>
         </item>
@@ -113,7 +113,7 @@
        <string notr="true">border: 1px solid black; background-color: white;</string>
       </property>
       <property name="text">
-       <string>Logo Area</string>
+       <string>ARKPLUS</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -127,7 +127,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1194</width>
+     <width>1250</width>
      <height>21</height>
     </rect>
    </property>

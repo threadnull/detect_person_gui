@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
-import cv2
 import sys
 
 class MainWindow(QMainWindow):
@@ -38,7 +37,7 @@ class MainWindow(QMainWindow):
             self.label_original.setPixmap(pixmap.scaled(self.label_original.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
             # 초기화
             self.label_result.clear()
-            self.label_result.setText("Result Image")
+            self.label_result.setText("결과 이미지")
 
     # 객체 탐지
     def detect_image(self):
@@ -49,7 +48,7 @@ class MainWindow(QMainWindow):
             
             plotted_img = results[0].plot()
             
-            rgb_img = cv2.cvtColor(plotted_img, cv2.COLOR_BGR2RGB)
+            rgb_img = plotted_img[..., ::-1].copy()
             h, w, ch = rgb_img.shape
             bytes_per_line = ch * w
             q_img = QImage(rgb_img.data, w, h, bytes_per_line, QImage.Format_RGB888)
