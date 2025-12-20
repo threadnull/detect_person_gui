@@ -209,3 +209,4 @@ __marimo__/
 #YOLO11
 *.pt
 GEMINI.md
+.backup
