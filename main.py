@@ -1,7 +1,7 @@
 # import 로드 순서 변경금지(dll 충돌 예방)
 from ultralytics import YOLO
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
-from PyQt5.QtGui import QPixmap, QImage
+from PyQt5.QtGui import QPixmap, QImage, QIcon
 from PyQt5.QtCore import Qt
 from PyQt5 import uic
 import sys
@@ -12,12 +12,14 @@ class MainWindow(QMainWindow):
         # ui 불러오기
         uic.loadUi('ui/window.ui', self)
 
-        # 각 버튼에 콜백 할당
+        # 윈도우 아이콘
+        self.setWindowIcon(QIcon('logo/arkplus.png'))
+
+        # 각 버튼 콜백
         self.btn_load.clicked.connect(self.load_image)
         self.btn_detect.clicked.connect(self.detect_image)
         self.btn_save.clicked.connect(self.save_image)
 
-        # 불러올 이미지 경로
         self.image_path = None
 
         # YOLO11m 모델
