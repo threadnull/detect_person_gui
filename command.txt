@@ -1,0 +1,1 @@
+pyinstaller --name "PersonDetector" --onefile --windowed --icon="logo/arkplus.png" --add-data "model/yolo11m.pt;model" --add-data "logo/arkplus.png;logo" --add-data "ui/window.ui;ui" --exclude-module PyQt5 main.py
