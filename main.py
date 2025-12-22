@@ -1,9 +1,9 @@
 # import 로드 순서 변경금지(dll 충돌 예방)
 from ultralytics import YOLO
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
-from PyQt5.QtGui import QPixmap, QImage, QIcon
-from PyQt5.QtCore import Qt
-from PyQt5 import uic
+from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PyQt6.QtGui import QPixmap, QImage, QIcon
+from PyQt6.QtCore import Qt
+from PyQt6 import uic
 import sys
 
 class MainWindow(QMainWindow):
@@ -56,7 +56,7 @@ class MainWindow(QMainWindow):
             # qt 이미지로 변환
             h, w, ch = rgb_img.shape
             bytes_per_line = ch * w
-            q_img = QImage(rgb_img.data, w, h, bytes_per_line, QImage.Format_RGB888)
+            q_img = QImage(rgb_img.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)
             
             pixmap = QPixmap.fromImage(q_img)
             self.label_result.setPixmap(pixmap.scaled(self.label_result.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation))
