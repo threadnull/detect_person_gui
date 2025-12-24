@@ -1,28 +1,17 @@
-# import 로드 순서 변경금지(dll 충돌 예방)
 from ultralytics import YOLO
 from PyQt6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt6.QtGui import QPixmap, QImage, QIcon
 from PyQt6.QtCore import Qt
 from PyQt6 import uic
-import sys, os
-
-# 리소스 절대경로 반환
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
-
+import sys
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         # ui 불러오기
-        uic.loadUi(resource_path('ui/window.ui'), self)
+        uic.loadUi('ui/window.ui', self)
 
         # 윈도우 아이콘
-        self.setWindowIcon(QIcon(resource_path('logo/arkplus.png')))
+        self.setWindowIcon(QIcon('logo/arkplus.png'))
 
         # 각 버튼 콜백
         self.btn_load.clicked.connect(self.load_image)
@@ -32,10 +21,10 @@ class MainWindow(QMainWindow):
         self.image_path = None
 
         # YOLO11m 모델
-        self.model = YOLO(resource_path('model/yolo11m.pt'))
+        self.model = YOLO('model/yolo11n.pt')
 
         # 로고
-        logo_pixmap = QPixmap(resource_path('logo/arkplus.png'))
+        logo_pixmap = QPixmap('logo/arkplus.png')
         if not logo_pixmap.isNull():
             self.label_logo.setPixmap(logo_pixmap.scaledToWidth(200, Qt.TransformationMode.SmoothTransformation))
 
@@ -76,7 +65,6 @@ class MainWindow(QMainWindow):
             file_name, _ = QFileDialog.getSaveFileName(self, "이미지 저장", "result.jpg", "Image Files (*.jpg *.png)")
             if file_name:
                 self.label_result.pixmap().save(file_name)
-
 # 엔트리 포인트
 if __name__ == "__main__":
     app = QApplication(sys.argv)
